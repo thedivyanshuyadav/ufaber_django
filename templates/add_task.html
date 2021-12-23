@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="">
+    <div class="container mx-auto" style="width: fit-content">
+        <form class="center" action = "" method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+
+    <div class="d-inline-flex w-75 mt-4">
+        <a href="/project/{{ project_id }}" class="btn btn-dark mx-auto">Back</a><br>
+</div>
+    </div>
+    </div>
+
+
+{% endblock %}

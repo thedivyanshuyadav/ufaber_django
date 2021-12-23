@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+    <b>Project Name : </b>{{ project.name }}<br>
+    <b>Project Description : </b>{{ project.desc }}<br>
+    <b>Project Duration (in days): </b>{{ project.duration_in_days }}<br>
+<br>
+<div class="text-center "><b>TASKS</b></div> <a href="{{ project.id }}/task/add" class="btn btn-primary" style="float: right">+</a><br>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col" colspan="2">Actions</th>
+
+    </tr>
+  </thead>
+    <tbody>
+
+{% for task in tasks %}
+    <tr  onclick="window.location.href='{{ project.id }}/task/{{ task.id }}'">
+ <th scope="row">{{ task.id }}</th>
+            <td>{{ task.name }}</td>
+            <td>{{ task.desc }}</td>
+            <td>{{ task.start }}</td>
+            <td>{{ task.end }}</td>
+          <td><a href="{{ project.id }}/task/{{ task.id }}/edit/" class="btn btn-primary">edit</a></td>
+          <td> <a href="{{ project.id }}/task/{{ task.id }}/delete/" class="btn btn-danger">delete</a></td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{#{{ tasks }}#}
+<a href="/" class=" btn btn-dark">Back</a>
+
+{% endblock %}

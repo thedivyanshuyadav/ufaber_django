@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+<b>Name: </b> {{ task.name }}<br>
+<b>Assigned to: </b>{{ task.assigned_to }}<br>
+<b>Description: </b>{{ task.desc }}<br>
+<b>start: </b>{{ task.start }}<br>
+<b>end: </b>{{ task.end }}<br>
+    <div class="d-inline-flex w-100">
+        <a class="btn btn-primary mt-4 mx-auto" href="/project/{{ project_id }}/task/{{ task.id }}/edit">Edit</a><br>
+        <a class="btn btn-danger mt-4 mx-auto"href="/project/{{ project_id }}/task/{{ task.id }}/delete">delete</a><br>
+        <a class="btn btn-primary mt-4 mx-auto " href="/project/{{ project_id }}">Back</a>
+    </div>
+{% endblock %}
